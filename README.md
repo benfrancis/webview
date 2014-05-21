@@ -1,2 +1,1 @@
-webview
-=======
+This repository is the home of the **Webview** specification.

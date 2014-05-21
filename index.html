@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webview</title>
+    <meta charset='utf-8'>
+    <script src='http://www.w3.org/Tools/respec/respec-w3c-common'
+            async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          specStatus: "unofficial",
+          shortName:  "webview",
+          editors: [
+                {   name:       "Ben Francis",
+                    url:        "http://tola.me.uk",
+                    company:    "Mozilla",
+                    companyURL: "http://mozilla.org" }
+          ],
+          previousMaturity: "",
+          previousPublishDate:  "",
+          wg:           "",
+          wgURI:        "",
+          wgPublicList: "",
+          wgPatentURI:  "",
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        This specification describes a proposed <code>&lt;webview&gt;</code>
+        HTML element and an associated JavaScript API which allows a web page
+        to embed another web page and manipulate and listen to changes in the
+        embedded content.
+      </p>
+    </section>
+
+    <section id='sotd'>
+      <p>
+      </p>
+    </section>
+    
+    <section>
+      <h2>Introduction</h2>
+      <p>    
+        This is a proposed extension to the [[!HTML5]] specification.
+      </p>
+    </section>
+    
+    <section>
+      <h2>Webview Element</h2>
+      <section>
+        <h3>Attributes</h3>
+          <section>
+            <h4>manifest</h4>
+            <p>The URL of an app manifest.</p>
+            <p>If set then by default the embedded browser context shall be
+            restricted to navigating to URLs inside the origin of the manifest
+            URL. If the app manifest specifies an app scope as a subset or
+            superset of URLs from its origin, then the browser context shall
+            be limited to that scope.
+            </p>
+            <p>If the embedded browser context attempts to navigate to a URL
+            outside of this scope then the user agent shall instead load that
+            URL outside of the embedded browser context, as per the convention
+            for that user agent.
+            </p>
+          </section>
+          <section>
+            <h4>src</h4>
+            <p>The URL of the page to embed.</p>
+          </section>
+          <section>
+            <h4>name</h4>
+            <p>
+              Sets the window.name property of the embedded browsing context.
+            </p>
+          </section>
+      </section>
+      <section>
+        <h3>Usage</h3>
+          <p>
+            <pre class="example highlight">
+            &lt;webview manifest="http://foo.com/manifest.webapp" src="http://foo.com" &#47;&gt;
+            </pre>
+          </p>
+      </section>
+    </section>
+    
+    <section>
+      <h2>Webview API</h2>
+      
+        <section id="events">
+          <h3>Events</h3>
+          <section>
+            <h4>locationchange</h4>
+          </section>
+          <section>
+            <h4>titlechange</h4>
+          </section>
+          <section>
+            <h4>iconchange</h4>
+          </section>
+          <section>
+            <h4>loadstart</h4>
+          </section>
+          <section>
+            <h4>loadend</h4>
+          </section>
+          <section>
+            <h4>scroll</h4>
+          </section>
+          <section>
+            <h4>close</h4>
+          </section>
+          <section>
+            <h4>newwindow</h4>
+          </section>
+        </section>
+        
+        <section id="methods">
+          <h3>Methods</h3>
+          <section>
+            <h4>go()</h4>
+          </section>
+          <section>
+            <h4>stop()</h4>
+          </section>
+          <section>
+            <h4>reload()</h4>
+          </section>
+          <section>
+            <h4>back()</h4>
+          </section>
+          <section>
+            <h4>forward()</h4>
+          </section>
+          <section>
+            <h4>canGoBack()</h4>
+          </section>
+            <section>
+            <h4>canGoForward()</h4>
+          </section>
+        </section>
+    </section>
+    
+  </body>
+</html>
