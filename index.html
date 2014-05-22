@@ -51,21 +51,6 @@
       <section>
         <h3>Attributes</h3>
           <section>
-            <h4>manifest</h4>
-            <p>The URL of an app manifest.</p>
-            <p>If set then by default the embedded browser context shall be
-            restricted to navigating to URLs inside the origin of the manifest
-            URL. If the app manifest specifies an app scope as a subset or
-            superset of URLs from its origin, then the browser context shall
-            be limited to that scope.
-            </p>
-            <p>If the embedded browser context attempts to navigate to a URL
-            outside of this scope then the user agent shall instead load that
-            URL outside of the embedded browser context, as per the convention
-            for that user agent.
-            </p>
-          </section>
-          <section>
             <h4>src</h4>
             <p>The URL of the page to embed.</p>
           </section>
@@ -75,12 +60,27 @@
               Sets the window.name property of the embedded browsing context.
             </p>
           </section>
+          <section>
+            <h4>manifest</h4>
+            <p>The URL of an [[appmanifest]].</p>
+            <p>By default a <code>&lt;webview&gt;</code> browser context can be
+            navigated to any URL.
+            If the manifest attribute is set to a valid app manifest URL then
+            the browser context may instead be limited to the scope of the app
+            described in the manifest.
+            </p>
+            <p>If the embedded browser context attempts to navigate to a URL
+            outside of this scope then the user agent may instead load that
+            URL outside of the embedded browser context, as per the convention
+            for that user agent.
+            </p>
+          </section>
       </section>
       <section>
         <h3>Usage</h3>
           <p>
             <pre class="example highlight">
-            &lt;webview manifest="http://foo.com/manifest.webapp" src="http://foo.com" &#47;&gt;
+            &lt;webview name="foo" manifest="http://foo.com/manifest.webapp" src="http://foo.com" &#47;&gt;
             </pre>
           </p>
       </section>
