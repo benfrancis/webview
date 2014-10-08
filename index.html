@@ -21,6 +21,23 @@
           wgURI:        "",
           wgPublicList: "",
           wgPatentURI:  "",
+          localBiblio:  {
+            "MOZ-BROWSER": {
+	      title: "Mozilla Browser Element",
+              href: "https://developer.mozilla.org/en-US/docs/Web/API/Using_the_Browser_API",
+              publisher: "Mozilla"
+            },
+            "GOOGLE-WEBVIEW": {
+	      title: "Google Webview Element",
+              href: "https://developer.chrome.com/apps/tags/webview",
+              publisher: "Google"
+            },
+            "MS-WEBVIEW": {
+	      title: "Microsoft Webview Element",
+              href: "http://msdn.microsoft.com/en-gb/library/windows/apps/dn301831.aspx",
+              publisher: "Microsoft"
+            }
+          }
       };
     </script>
   </head>
@@ -43,6 +60,13 @@
       <h2>Introduction</h2>
       <p>    
         This is a proposed extension to the [[!HTML5]] specification.
+      </p>
+      <p>
+        Web pages often have the need to embed other web pages. In many cases an <code>&lt;iframe&gt;</code> element is sufficient for this purpose, but when the embedded web page is not same-origin with the embedding web page an <code>&lt;iframe&gt;</code> has many limitations.</p>
+      <p>Several user agents have existing implementations of features which provide privileged web apps with additional functionality when embedding cross-origin web content. Examples include the <code>&lt;iframe mozbrowser&gt;</code> element in Firefox OS [[MOZ-BROWSER]], the <code>&lt;webview&gt;</code> element in Chrome OS [[GOOGLE-WEBVIEW]] and the <code>&lt;x-ms-webview&gt;</code> element in Windows [[MS-WEBVIEW]], along with their corresponding APIs. These existing implementations include features to embed, access information about and control web content (including cross-origin content) in various ways.
+      </p>
+      <p>
+        Note that this additional functionality would not be safe to expose to all web pages using current web security models. In the examples given above proprietary methods are used in order to safely grant these extra privileges to certain web content. A standardised security model to safely expose such features to web content is certainly needed, but that is considered outside the scope of this specification.
       </p>
     </section>
     
